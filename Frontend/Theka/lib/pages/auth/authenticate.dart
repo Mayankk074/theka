@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:theka/service/authService.dart';
 import 'package:theka/shared/constants.dart';
 
-class Login extends StatefulWidget {
-  const Login({super.key});
+class Authenticate extends StatefulWidget {
+  final AuthService authService;
+  const Authenticate({super.key, required this.authService});
 
   @override
-  State<Login> createState() => _LoginState();
+  State<Authenticate> createState() => _AuthenticateState();
 }
 
-class _LoginState extends State<Login> {
+class _AuthenticateState extends State<Authenticate> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.yellow[100],
       body: Padding(
         padding: EdgeInsets.fromLTRB(0.0,400.0,0,0),
         child: Column(
@@ -23,9 +23,8 @@ class _LoginState extends State<Login> {
               children: [
                 ElevatedButton(
                   onPressed: (){
-                    AuthService().login('ashok@gmail.com', 'test123');
+                    widget.authService.login('ashok@gmail.com', 'test123');
                   },
-                  style: buttonStyle,
                   child: Text('Sign Up'),
                 ),
               ],
@@ -33,7 +32,7 @@ class _LoginState extends State<Login> {
             SizedBox(height: 20.0,),
             ElevatedButton(
               onPressed: (){},
-              style: buttonStyle,
+              // style: buttonStyle,
               child: Text('Sign In'))
           ],
         ),
