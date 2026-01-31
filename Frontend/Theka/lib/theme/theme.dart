@@ -44,5 +44,32 @@ class AppTheme {
       bodyMedium: TextStyle(fontSize: 14, color: Colors.black87),
       titleLarge: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
     ),
+    inputDecorationTheme: InputDecorationTheme(
+      filled: true,
+      fillColor:const Color(0xFFFFFDF5), // background color
+      isDense: true,
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(12),
+        borderSide: const BorderSide(
+          color: Colors.black54,
+          width: 1.5,
+        ),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(12),
+        borderSide: const BorderSide(
+          color: Colors.blue,
+          width: 2,
+        ),
+      ),
+      labelStyle: const TextStyle(
+        color: Colors.black87,
+        fontSize: 16,
+      ),
+      hintStyle: const TextStyle(
+        color: Colors.grey,
+      ),
+      contentPadding: const EdgeInsets.symmetric(vertical: 14, horizontal: 20),
+    ),
   );
 }

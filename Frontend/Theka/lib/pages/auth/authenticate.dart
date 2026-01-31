@@ -14,27 +14,31 @@ class _AuthenticateState extends State<Authenticate> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: EdgeInsets.fromLTRB(0.0,400.0,0,0),
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ElevatedButton(
-                  onPressed: (){
-                    widget.authService.login('ashok@gmail.com', 'test123');
-                  },
-                  child: Text('Sign Up'),
-                ),
-              ],
-            ),
-            SizedBox(height: 20.0,),
-            ElevatedButton(
-              onPressed: (){},
-              // style: buttonStyle,
-              child: Text('Sign In'))
-          ],
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(0.0,400.0,0,0),
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ElevatedButton(
+                    onPressed: (){
+                      Navigator.pushNamed(context, '/signUp');
+                    },
+                    child: const Text('Sign Up'),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 20.0,),
+              ElevatedButton(
+                onPressed: (){
+                  Navigator.pushNamed(context, '/signIn');
+                },
+                // style: buttonStyle,
+                child: const Text('Sign In'))
+            ],
+          ),
         ),
       ),
     );
