@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:theka/pages/auth/authenticate.dart';
-import 'package:theka/pages/auth/signIn.dart';
-import 'package:theka/pages/auth/signUp.dart';
-import 'package:theka/pages/auth/wrapper.dart';
+import 'package:theka/features/auth/pages/signUp/user_details.dart';
+import 'package:theka/features/wrapper.dart';
 import 'package:theka/service/authService.dart';
 import 'package:theka/theme/theme.dart';
 
+import 'features/auth/pages/signIn/signIn.dart';
+import 'features/auth/pages/signUp/sign_up.dart';
 import 'model/user.dart';
 
 
@@ -32,7 +32,7 @@ class _MyAppState extends State<MyApp> {
         routes: {
           '/': (context) => Wrapper(authService: widget.authService),
           '/signIn': (context) => SignIn(authService: widget.authService,),
-          '/signUp' : (context) => SignUp(authService: widget.authService)
+          '/signUp' : (context) => SignUp(authService: widget.authService),
         },
       ),
     );

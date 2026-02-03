@@ -1,13 +1,13 @@
 class User{
-  int? id;
+  int? userId;
+  int? profileId;
   String? email;
-  String? password;
 
-  User({this.id, this.password, this.email});
+  User({this.userId, this.profileId, this.email});
   factory User.fromJson(Map<String, dynamic> json) {
     return User(
-      id: json['id'],
-      password: json['password'],
+      userId: json['userId'],
+      profileId: json['profileId'],
       email: json['email']
     );
   }

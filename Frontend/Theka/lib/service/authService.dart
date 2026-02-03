@@ -4,7 +4,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:theka/service/storageHelper.dart';
 import '../model/user.dart';
-import '../model/userProfile.dart';
+import '../model/user_profile.dart';
 import '../shared/constants.dart';
 import 'package:http/http.dart' as http;
 
@@ -35,10 +35,10 @@ class AuthService{
     }
   }
 
-  Future<void> register(String email, String password, UserProfile profile) async {
+  Future<void> register({required String email, required String password,required String role, required UserProfile profile}) async {
     final response = await http.post(
       Uri.parse('$baseUrl/register'),
-      body: jsonEncode({'email': email, 'password': password, 'profile': profile}),
+      body: jsonEncode({'email': email, 'password': password,'role': role, 'profile': profile.toJson()}),
       headers: {'Content-Type': 'application/json'},
     );
 
