@@ -28,11 +28,18 @@ public class UserService {
     }
 
     //For encoding password text to non-readable text
-    private BCryptPasswordEncoder encoder=new BCryptPasswordEncoder(12);
+    @Autowired
+    private BCryptPasswordEncoder encoder;
 
     public Users register(Users user){
         //encode the password first then save it in user object.
         user.setPassword(encoder.encode(user.getPassword()));
+        UserProfile profile = user.getProfile();
+
+        if (profile != null) {
+            profile.setUser(user); //UserProfile is the owning side so you need to setUser.
+        }
+
         return userRepo.save(user);
     }
 

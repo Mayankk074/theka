@@ -16,7 +16,8 @@ public class Users {
     private long id;
     private String email;
     private String password;
-    private String role; // "CONTRACTOR" or "CLIENT"
+    @Enumerated(EnumType.STRING)
+    private UserRole role; // "CONTRACTOR" or "CLIENT"
 
     // relationships (optional)
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
