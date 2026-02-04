@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProfileResponseDto {
+public class UserProfileDto {
 
     private long id;
 
@@ -27,8 +27,8 @@ public class ProfileResponseDto {
     private Double rating = 0.0;
     private Integer numReviews = 0;
 
-    public static ProfileResponseDto fromEntity(UserProfile profile) {
-        return new ProfileResponseDto(
+    public static UserProfileDto fromEntity(UserProfile profile) {
+        return new UserProfileDto(
                 profile.getId(), profile.getName(), profile.getPhone(), profile.getAddress(),
                 profile.getProfilePicUrl(), profile.getBio(), profile.getSkills(), profile.getExperienceYears(),
                 profile.getServiceType(), profile.getRating(), profile.getNumReviews()

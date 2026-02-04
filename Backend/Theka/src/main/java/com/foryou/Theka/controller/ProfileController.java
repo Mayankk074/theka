@@ -1,6 +1,6 @@
 package com.foryou.Theka.controller;
 
-import com.foryou.Theka.dto.ProfileResponseDto;
+import com.foryou.Theka.dto.UserProfileDto;
 import com.foryou.Theka.model.UserProfile;
 import com.foryou.Theka.service.ProfileService;
 import org.springframework.http.ResponseEntity;
@@ -16,16 +16,16 @@ public class ProfileController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ProfileResponseDto> getProfile(@PathVariable long id){
+    public ResponseEntity<UserProfileDto> getProfile(@PathVariable long id){
         UserProfile profile=profileService.getProfile(id);
-        ProfileResponseDto dto=ProfileResponseDto.fromEntity(profile);
+        UserProfileDto dto= UserProfileDto.fromEntity(profile);
         return ResponseEntity.ok(dto);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ProfileResponseDto> updateProfile(@PathVariable long id, @RequestBody UserProfile profile){
+    public ResponseEntity<UserProfileDto> updateProfile(@PathVariable long id, @RequestBody UserProfile profile){
         UserProfile updatedProfile=profileService.updateProfile(id, profile);
-        ProfileResponseDto dto=ProfileResponseDto.fromEntity(updatedProfile);
+        UserProfileDto dto= UserProfileDto.fromEntity(updatedProfile);
         return ResponseEntity.ok(dto);
     }
 
