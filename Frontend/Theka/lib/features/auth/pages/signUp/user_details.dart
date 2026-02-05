@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:theka/features/auth/pages/signUp/contractor_details.dart';
 import 'package:theka/model/register_request.dart';
 import 'package:theka/model/user_profile.dart';
 import 'package:theka/service/authService.dart';
 
-import '../../../../model/user_role.dart';
+import '../../../../model/enums.dart';
 
 class UserDetails extends StatefulWidget {
   final AuthService authService;
@@ -115,9 +116,15 @@ class _UserDetailsState extends State<UserDetails> {
                           if(role == UserRole.CLIENT){
                             await widget.authService.register(request: request);
                           }else{
-
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ContractorDetails(
+                                  request: request,
+                                  authService: widget.authService,
+                                ))
+                            );
                           }
-
                         }
                       },
                       child: const Text('Submit'),

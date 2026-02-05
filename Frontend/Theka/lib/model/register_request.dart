@@ -1,5 +1,5 @@
 import 'package:theka/model/user_profile.dart';
-import 'package:theka/model/user_role.dart';
+import 'package:theka/model/enums.dart';
 
 class RegisterRequest{
   final String email;

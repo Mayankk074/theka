@@ -1,5 +1,7 @@
 import 'package:theka/model/user.dart';
 
+import 'enums.dart';
+
 class UserProfile{
   int? id;
   String? name;
@@ -10,7 +12,7 @@ class UserProfile{
   //can be null for client
   String? skills; // comma-separated or @ElementCollection
   int? experienceYears;
-  String? serviceType;
+  ServiceType? serviceType;
 
   UserProfile({this.id,  this.name, this.phone, this.address,
     required this.bio, this.experienceYears, this.skills, this.profilePicUrl, this.serviceType});
@@ -24,7 +26,9 @@ class UserProfile{
       bio: json['bio'],
       skills: json['skills'],
       experienceYears: json['experienceYears'],
-      serviceType: json['serviceType']
+      serviceType: ServiceType.values.firstWhere(
+            (e) => e.name == json['serviceType'],
+      )
     );
   }
 
@@ -36,8 +40,8 @@ class UserProfile{
       "profilePicUrl": profilePicUrl ?? "No DP",
       "bio": bio,
       "skills": skills ?? "No Skills",
-      "experience": experienceYears ?? 0,
-      "serviceType": serviceType ?? "NA"
+      "experienceYears": experienceYears ?? 0,
+      "serviceType": serviceType?.name ?? "NA"
     };
   }
 }
