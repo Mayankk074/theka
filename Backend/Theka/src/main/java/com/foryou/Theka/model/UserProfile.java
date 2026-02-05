@@ -27,7 +27,8 @@ public class UserProfile {
     //can be null for client
     private String skills; // comma-separated or @ElementCollection
     private Integer experienceYears;
-    private String serviceType;
+    @Enumerated(EnumType.STRING)
+    private ServiceType serviceType;
 
     private Double rating = 0.0;
     private Integer numReviews = 0;

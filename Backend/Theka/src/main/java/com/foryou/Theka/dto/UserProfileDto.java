@@ -1,6 +1,7 @@
 package com.foryou.Theka.dto;
 
 
+import com.foryou.Theka.model.ServiceType;
 import com.foryou.Theka.model.UserProfile;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,7 +23,7 @@ public class UserProfileDto {
     //can be null for client
     private String skills; // comma-separated or @ElementCollection
     private Integer experienceYears;
-    private String serviceType;
+    private ServiceType serviceType;
 
     private Double rating = 0.0;
     private Integer numReviews = 0;
